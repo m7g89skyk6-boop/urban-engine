@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>绿筑未来 · 科普海报设计大赛</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --deep:#12082b; --violet:#7c4dff; --lav:#b39dff;
+  --mint:#5ef2c8; --gold:#ffd97a; --ink:#efeaff; --sub:#c9bdf2;
+}
+html,body{background:#0a0518}
+body{font-family:"PingFang SC","Microsoft YaHei","Source Han Sans SC",sans-serif;display:flex;justify-content:center;padding:24px;color:var(--ink)}
+/* A1 竖版 594×841 */
+.poster{
+  position:relative;width:760px;aspect-ratio:594/841;border-radius:20px;overflow:hidden;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -8%, rgba(124,77,255,.45), transparent 60%),
+    radial-gradient(ellipse 65% 40% at 92% 36%, rgba(94,242,200,.12), transparent 60%),
+    radial-gradient(ellipse 75% 45% at 5% 78%, rgba(255,120,200,.12), transparent 55%),
+    linear-gradient(175deg,#1a0d3d 0%, #12082b 36%, #0d0722 68%, #170c36 100%);
+  box-shadow:0 30px 90px rgba(80,40,200,.35), inset 0 0 120px rgba(20,8,60,.6);
+}
+#stars{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.nebula{position:absolute;border-radius:50%;filter:blur(60px);z-index:0;opacity:.55;animation:drift 18s ease-in-out infinite alternate}
+.n1{width:46%;height:24%;left:-10%;top:5%;background:rgba(124,77,255,.38)}
+.n2{width:40%;height:20%;right:-8%;top:40%;background:rgba(94,242,200,.14);animation-delay:-6s}
+.n3{width:52%;height:26%;left:8%;bottom:3%;background:rgba(179,157,255,.22);animation-delay:-12s}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(4%,-3%) scale(1.12)}}
+.inner{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;padding:4% 5.4%}
+
+/* 顶栏 */
+.top{display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.3em;color:var(--sub)}
+.badge{border:1px solid rgba(179,157,255,.5);border-radius:999px;padding:.45em 1.3em;background:rgba(124,77,255,.14);letter-spacing:.18em}
+
+/* 主标题 */
+.title-block{text-align:center;margin-top:4%}
+.kicker{color:var(--mint);letter-spacing:.7em;font-size:13px;margin-bottom:2.4%;opacity:0;animation:rise .9s .2s ease forwards}
+h1{
+  font-size:76px;font-weight:900;letter-spacing:.1em;line-height:1.1;
+  background:linear-gradient(92deg,#fff 10%,var(--lav) 45%,var(--mint) 90%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 24px rgba(124,77,255,.55));
+  opacity:0;animation:rise .9s .4s ease forwards;
+}
+.subtitle{margin-top:2%;color:var(--sub);font-size:17px;letter-spacing:.22em;opacity:0;animation:rise .9s .6s ease forwards}
+.subtitle b{color:var(--gold);font-weight:600}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.divider{width:62%;height:1px;margin:3% auto 0;background:linear-gradient(90deg,transparent,var(--lav),var(--mint),transparent);position:relative;opacity:0;animation:rise .9s .7s ease forwards}
+.divider::after{content:"";position:absolute;left:50%;top:-3px;width:7px;height:7px;transform:translateX(-50%) rotate(45deg);background:var(--mint);box-shadow:0 0 12px var(--mint)}
+
+.section{margin-top:3.4%;opacity:0;animation:rise .9s ease forwards}
+.s1{animation-delay:1.15s}.s2{animation-delay:1.3s}.s3{animation-delay:1.45s}.s4{animation-delay:1.6s}.s5{animation-delay:1.75s}
+.s-head{display:flex;align-items:center;gap:10px;margin-bottom:2%}
+.s-num{flex:none;width:1.7em;height:1.7em;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700;color:#0d0722;background:linear-gradient(135deg,var(--mint),var(--lav));box-shadow:0 0 14px rgba(94,242,200,.5)}
+.s-title{font-size:21px;font-weight:800;letter-spacing:.14em}
+.s-title small{font-size:12px;color:var(--sub);letter-spacing:.2em;margin-left:.8em;font-weight:400}
+.card{border-radius:14px;padding:2.6% 3.6%;background:linear-gradient(165deg,rgba(124,77,255,.13),rgba(18,8,43,.55));border:1px solid rgba(179,157,255,.24);backdrop-filter:blur(8px)}
+.lead{font-size:13.5px;line-height:1.95;color:var(--ink)}
+.lead b{color:var(--mint);font-weight:700}
+.lead .hl{color:var(--gold)}
+
+/* 四大方向 */
+.paths{display:grid;grid-template-columns:repeat(4,1fr);gap:2.2%}
+.path{border-radius:12px;padding:7% 5%;text-align:center;background:linear-gradient(160deg,rgba(124,77,255,.16),rgba(30,16,70,.55));border:1px solid rgba(179,157,255,.28);transition:transform .35s,border-color .35s,box-shadow .35s;opacity:0;animation:rise .8s ease forwards}
+.path:nth-child(1){animation-delay:.75s}.path:nth-child(2){animation-delay:.85s}.path:nth-child(3){animation-delay:.95s}.path:nth-child(4){animation-delay:1.05s}
+.path:hover{transform:translateY(-5px);border-color:var(--mint);box-shadow:0 12px 30px rgba(94,242,200,.2)}
+.path .ico{font-size:26px;display:block;margin-bottom:8%}
+.path h3{font-size:14px;letter-spacing:.08em;margin-bottom:6%}
+.path p{font-size:10.5px;color:var(--sub);line-height:1.7}
+.path .en{display:block;margin-top:7%;font-size:9px;letter-spacing:.14em;color:rgba(179,157,255,.75)}
+
+/* 双栏模块 */
+.duo{display:grid;grid-template-columns:1fr 1.18fr;gap:2.4%}
+.duo .card{height:100%}
+.duo h4{font-size:15px;color:var(--gold);letter-spacing:.1em;margin-bottom:5%}
+.duo li{list-style:none;font-size:12px;color:var(--sub);line-height:2;padding-left:1.4em;position:relative}
+.duo li::before{content:"◆";position:absolute;left:0;color:var(--mint);font-size:9px;top:.35em}
+.spec{display:grid;grid-template-columns:1fr 1fr;gap:2.6%}
+.spec .item{text-align:center;padding:5% 3%;border-radius:10px;background:rgba(94,242,200,.05);border:1px dashed rgba(94,242,200,.3)}
+.spec .v{font-size:20px;font-weight:900;color:var(--mint);text-shadow:0 0 14px rgba(94,242,200,.5)}
+.spec .k{font-size:10.5px;color:var(--sub);margin-top:5%;line-height:1.6}
+
+/* 内容三层面 */
+.layers{display:grid;grid-template-columns:repeat(3,1fr);gap:2.2%}
+.layer{border-radius:12px;padding:6% 6%;background:rgba(255,217,122,.05);border:1px solid rgba(255,217,122,.22);transition:transform .3s}
+.layer:hover{transform:translateY(-4px)}
+.layer h4{font-size:14px;color:var(--gold);letter-spacing:.08em;margin-bottom:6%}
+.layer p{font-size:11px;color:var(--sub);line-height:1.85}
+
+/* 口号条 */
+.slogan{margin-top:3.4%;text-align:center;font-size:16px;letter-spacing:.2em;color:var(--ink);opacity:0;animation:rise .9s 1.9s ease forwards}
+.slogan b{background:linear-gradient(92deg,var(--lav),var(--mint));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.footer{margin-top:auto;padding-top:2.8%;display:flex;justify-content:space-between;align-items:center;font-size:10.5px;color:rgba(201,189,242,.78);letter-spacing:.15em;border-top:1px solid rgba(179,157,255,.18)}
+.footer .dot{color:var(--mint)}
+</style>
+<base target="_blank">
+</head>
+<body>
+<div class="poster">
+  <canvas id="stars"></canvas>
+  <div class="nebula n1"></div><div class="nebula n2"></div><div class="nebula n3"></div>
+  <div class="inner">
+    <div class="top">
+      <span>淮安大学 建筑工程学院</span>
+      <span class="badge">POSTER DESIGN CONTEST</span>
+    </div>
+
+    <div class="title-block">
+      <div class="kicker">科 普 海 报 设 计 大 赛 邀 你 参 赛</div>
+      <h1>绿筑未来</h1>
+      <div class="subtitle">用画笔描绘<b>生物建造</b>的绿色图景</div>
+    </div>
+    <div class="divider"></div>
+
+    <!-- ① 活动背景 -->
+    <div class="section s1">
+      <div class="s-head"><span class="s-num">01</span><span class="s-title">活动背景<small>BACKGROUND</small></span></div>
+      <div class="card">
+        <p class="lead">2024 年，中国工程院院士、重庆大学学术委员会主任<b>刘汉龙</b>教授在全球首次提出"<b>生物建造</b>"（Biogenic Construction）概念。该理念面向国家"<span class="hl">双碳</span>"战略与土木工程绿色转型的迫切需求，以"<b>绿色低碳</b>""<b>自然相融</b>"为基本原则，以生物为载体进行工程建设，或研发新材料、新装备、新工艺。为深入贯彻"科学普及与科技创新同等重要"的重要论述，我院特举办本次科普海报设计比赛，邀你将前沿科学理论转化为公众<b>看得懂、记得住</b>的科普图像。</p>
+      </div>
+    </div>
+
+    <!-- ② 创作方向 -->
+    <div class="section s2">
+      <div class="s-head"><span class="s-num">02</span><span class="s-title">四大创作方向<small>THEMES</small></span></div>
+      <div class="paths">
+        <div class="path"><span class="ico">🧫</span><h3>微生物建造</h3><p>矿化菌诱导碳酸钙沉淀（MICP）加固地基、修复文物</p><span class="en">MICROBIAL</span></div>
+        <div class="path"><span class="ico">🌿</span><h3>植物建造</h3><p>根系固土护坡、生物质绿色建材</p><span class="en">BOTANICAL</span></div>
+        <div class="path"><span class="ico">🐝</span><h3>动物建造</h3><p>借鉴巢穴智慧启迪自适应建筑结构</p><span class="en">ANIMAL</span></div>
+        <div class="path"><span class="ico">🐚</span><h3>仿生建造</h3><p>模仿贝壳骨骼微观结构研制新材料</p><span class="en">BIOMIMETIC</span></div>
+      </div>
+    </div>
+
+    <!-- ③ 内容三层面 --><div class="section s3">
+      <div class="s-head"><span class="s-num">03</span><span class="s-title">作品内容三层面<small>CONTENT</small></span></div>
+      <div class="layers">
+        <div class="layer"><h4>① 科普主题核心介绍</h4><p>信息传达清晰准确，科学知识表述无误，面向公众通俗易懂。</p></div>
+        <div class="layer"><h4>② 科学原理解读</h4><p>结合建筑工程专业特色，将生物建造理论与实际工程场景相结合。</p></div>
+        <div class="layer"><h4>③ 工程应用展望</h4><p>增强内容的专业性与说服力，兼具视觉吸引力与传播意识。</p></div>
+      </div>
+    </div>
+
+    <div class="slogan">以画笔 <b>对话自然</b> · 让科学 <b>被看见</b></div>
+
+    <div class="footer">
+      <span>淮安大学建筑工程学院 · "绿筑未来"科普海报设计大赛</span>
+      <span><span class="dot">◆</span> 崇尚创新 <span class="dot">◆</span> 绿色低碳 <span class="dot">◆</span> 弘扬科学家精神</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var cv=document.getElementById('stars'),cx=cv.getContext('2d'),W,H,stars=[],meteors=[];
+  function resize(){var r=cv.parentElement.getBoundingClientRect();W=cv.width=Math.floor(r.width*devicePixelRatio);H=cv.height=Math.floor(r.height*devicePixelRatio);}
+  resize();addEventListener('resize',resize);
+  for(var i=0;i<170;i++)stars.push({x:Math.random(),y:Math.random(),r:Math.random()*1.6+.4,p:Math.random()*Math.PI*2,s:.5+Math.random()*1.5,c:Math.random()<.16?'94,242,200':(Math.random()<.5?'255,255,255':'179,157,255')});
+  function spawnMeteor(){meteors.push({x:Math.random()*.7+.2,y:Math.random()*.2,l:0,life:60+Math.random()*30,v:.006+Math.random()*.004});setTimeout(spawnMeteor,3000+Math.random()*5000);}
+  setTimeout(spawnMeteor,1500);
+  function tick(t){
+    cx.clearRect(0,0,W,H);
+    for(var i=0;i<stars.length;i++){var s=stars[i],a=.35+.65*Math.abs(Math.sin(s.p+t*.001*s.s));
+      cx.beginPath();cx.arc(s.x*W,s.y*H,s.r*devicePixelRatio,0,7);cx.fillStyle='rgba('+s.c+','+a+')';cx.fill();}
+    for(var j=meteors.length-1;j>=0;j--){var m=meteors[j];m.l++;m.x-=m.v;m.y+=m.v*.55;
+      var g=cx.createLinearGradient(m.x*W,m.y*H,(m.x+m.v*14)*W,(m.y-m.v*8)*H);
+      var al=Math.sin(Math.PI*m.l/m.life)*.8;
+      g.addColorStop(0,'rgba(255,255,255,'+al+')');g.addColorStop(1,'rgba(124,77,255,0)');
+      cx.strokeStyle=g;cx.lineWidth=1.4*devicePixelRatio;
+      cx.beginPath();cx.moveTo(m.x*W,m.y*H);cx.lineTo((m.x+m.v*14)*W,(m.y-m.v*8)*H);cx.stroke();
+      if(m.l>m.life)meteors.splice(j,1);}
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
